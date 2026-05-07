@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CardList from "./components/CardList";
+
 const urlAttrici = 'https://lanciweb.github.io/demo/api/actresses/';
 
 function App() {
@@ -36,12 +37,10 @@ function App() {
     chiamataApi(urlAttrici);
   }, []);
   return (
-    <section>
-      <div>
-        <CardList
-          data={actresses}
-        />
-      </div>
+    <section className="container">
+      <CardList
+        data={actresses}
+      />
     </section>
   );
 }

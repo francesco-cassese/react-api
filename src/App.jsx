@@ -1,7 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import CardList from "./components/CardList";
 const urlAttrici = 'https://lanciweb.github.io/demo/api/actresses/';
 
 function App() {
+
+  const [actresses, setActresses] = useState([]);
 
   const chiamataApi = url => {
     return (
@@ -21,10 +24,10 @@ function App() {
               awards
             }
           });
-          console.log(datiEstrapolati);
+          setActresses(datiEstrapolati);
         })
     )
-  }
+  };
 
   useEffect(() => {
     console.log('Eseguito');
@@ -32,7 +35,11 @@ function App() {
   }, []);
 
   return (
-    <h1>Hello</h1>
+    <section>
+      <CardList
+        data={actresses}
+      />
+    </section>
   );
 }
 export default App;

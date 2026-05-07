@@ -10,6 +10,13 @@
 
 .card-actor {
   max-width: 400px;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.card-actor:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .5) !important;
+  transform: translateY(-5px);
+  cursor: pointer;
 }
 
 .card img {

@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+.bg-dark-blue {
+  background-color: #1e1d30;
+}
+
 .card img {
   display: block;
   object-fit: cover;

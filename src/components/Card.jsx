@@ -1,7 +1,7 @@
 function Card({ name, birthYear, nationality, biography, image, awards, knownFor }) {
     return (
 
-        <article className="card h-100">
+        <article className="card h-100 bg-dark-blue text-white">
             <h2>{name}</h2>
             <img src={image} alt={name} />
             <time>{birthYear}</time>

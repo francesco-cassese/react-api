@@ -13,7 +13,8 @@ function App() {
           return response.json();
         })
         .then(json => {
-          const datiEstrapolati = json.map(({ id, name, birth_year, nationality, biography, image, awards }) => {
+          console.log(json);
+          const datiEstrapolati = json.map(({ id, name, birth_year, nationality, biography, image, awards, known_for }) => {
             return {
               id,
               name,
@@ -21,7 +22,8 @@ function App() {
               nationality,
               biography,
               image,
-              awards
+              awards,
+              knownFor: known_for
             }
           });
           setActresses(datiEstrapolati);

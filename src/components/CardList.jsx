@@ -10,10 +10,11 @@ function CardList({ data }) {
             biography={datum.biography}
             image={datum.image}
             awards={datum.awards}
+            knownFor={datum.knownFor}
         />
     })
     return (
-        <ul>{cardListJsx}</ul>
+        <ul className="list-unstyled">{cardListJsx}</ul>
     )
 }
 export default CardList

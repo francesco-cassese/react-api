@@ -40,6 +40,7 @@ function App() {
     chiamataApi(urlAttrici, setActresses);
     chiamataApi(urlAttori, setActors);
   }, []);
+
   return (
     <>
       <Header />

@@ -3,12 +3,14 @@ import CardList from "./components/CardList";
 import Header from "./components/Header";
 
 const urlAttrici = 'https://lanciweb.github.io/demo/api/actresses/';
+const urlAttori = ' https://lanciweb.github.io/demo/api/actors/';
 
 function App() {
 
   const [actresses, setActresses] = useState([]);
+  const [actors, setActors] = useState([]);
 
-  const chiamataApi = url => {
+  const chiamataApi = (url, setData) => {
     return (
       fetch(url)
         .then(response => {
@@ -28,26 +30,36 @@ function App() {
               knownFor: known_for
             }
           });
-          setActresses(datiEstrapolati);
+          setData(datiEstrapolati);
         })
     )
   };
 
   useEffect(() => {
     console.log('Eseguito');
-    chiamataApi(urlAttrici);
+    chiamataApi(urlAttrici, setActresses);
+    chiamataApi(urlAttori, setActors);
   }, []);
   return (
     <>
       <Header />
       <main className="container">
-        <div className="text-center mb-2">
-          <h1>Actors</h1>
-          <span>List of actors fetched from an API</span>
-        </div>
         <section>
+          <div className="text-center mb-2">
+            <h1>Actresses</h1>
+            <span>List of actors fetched from an API</span>
+          </div>
           <CardList
             data={actresses}
+          />
+        </section>
+        <section>
+          <div className="text-center mb-2">
+            <h1>Actors</h1>
+            <span>List of actors fetched from an API</span>
+          </div>
+          <CardList
+            data={actors}
           />
         </section>
       </main>

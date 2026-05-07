@@ -18,11 +18,11 @@ function Card({ name, birthYear, nationality, biography, image, awards, knownFor
             </div>
             <p className="text-center p-2">{biography}</p>
             <div className="text-center text-danger">
-                <span className="fw-bold">Known For</span>
+                <span className="fw-bold">Known For:</span>
                 <p>{KnownJsx.join(', ')}</p>
             </div>
             <div className="text-center text-warning">
-                <span className="fw-bold">Awards</span>
+                <span className="fw-bold">Awards:</span>
                 <p>{awardsJsx.join(', ')}</p>
             </div>
         </article>

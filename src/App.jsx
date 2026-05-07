@@ -32,6 +32,10 @@ function App() {
           });
           setData(datiEstrapolati);
         })
+        .catch(erro => {
+          console.error(error);
+
+        })
     )
   };
 

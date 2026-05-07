@@ -51,20 +51,11 @@ function App() {
       <main className="container">
         <section>
           <div className="text-center mb-2">
-            <h1>Actresses</h1>
-            <span>List of actors fetched from an API</span>
-          </div>
-          <CardList
-            data={actresses}
-          />
-        </section>
-        <section>
-          <div className="text-center mb-2">
             <h1>Actors</h1>
             <span>List of actors fetched from an API</span>
           </div>
           <CardList
-            data={actors}
+            data={[...actors, ...actresses]}
           />
         </section>
       </main>

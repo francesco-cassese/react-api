@@ -8,7 +8,12 @@
   background-color: #1e1d30;
 }
 
+.card-actor {
+  max-width: 400px;
+}
+
 .card img {
   display: block;
   object-fit: cover;
+  height: 300px;
 }

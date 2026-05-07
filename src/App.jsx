@@ -40,11 +40,17 @@ function App() {
   return (
     <>
       <Header />
-      <section className="container">
-        <CardList
-          data={actresses}
-        />
-      </section>
+      <main className="container">
+        <div className="text-center mb-2">
+          <h1>Actors</h1>
+          <span>List of actors fetched from an API</span>
+        </div>
+        <section>
+          <CardList
+            data={actresses}
+          />
+        </section>
+      </main>
     </>
   );
 }

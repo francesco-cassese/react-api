@@ -33,12 +33,13 @@ function App() {
     console.log('Eseguito');
     chiamataApi(urlAttrici);
   }, []);
-
   return (
     <section>
-      <CardList
-        data={actresses}
-      />
+      <div>
+        <CardList
+          data={actresses}
+        />
+      </div>
     </section>
   );
 }

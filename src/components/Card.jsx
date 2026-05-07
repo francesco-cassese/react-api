@@ -1,6 +1,6 @@
-function Card() {
+function Card({ name, birthYear, nationality, biography, image, awards }) {
     return (
-        <li key={id}>
+        <li>
             <article className="card">
                 <h2>{name}</h2>
                 <time>{birthYear}</time>

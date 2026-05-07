@@ -1,11 +1,19 @@
 import Card from "./Card"
 
-function CardList({ id, name, birth_year: birthYear, biography, image, awards }) {
+function CardList({ data }) {
     const cardListJsx = data.map(datum => {
-        return <ul><Card /></ul>
+        return <Card
+            key={datum.id}
+            name={datum.name}
+            birthYear={datum.birthYear}
+            nationality={datum.nationality}
+            biography={datum.biography}
+            image={datum.image}
+            awards={datum.awards}
+        />
     })
     return (
-        { cardListJsx }
+        <ul>{cardListJsx}</ul>
     )
 }
 export default CardList

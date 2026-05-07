@@ -10,7 +10,18 @@ function App() {
           return response.json();
         })
         .then(json => {
-          console.log(json);
+          const datiEstrapolati = json.map(({ id, name, birth_year, nationality, biography, image, awards }) => {
+            return {
+              id,
+              name,
+              birthYear: birth_year,
+              nationality,
+              biography,
+              image,
+              awards
+            }
+          });
+          console.log(datiEstrapolati);
         })
     )
   }

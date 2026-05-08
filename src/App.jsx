@@ -19,7 +19,7 @@ function App() {
           console.log(json);
           return json.map(({ id, name, birth_year, nationality, biography, image, awards, known_for }) => {
             return {
-              id: `${prefisso} ${id}`,
+              id: `${prefisso}-${id}`,
               name,
               birthYear: birth_year,
               nationality,

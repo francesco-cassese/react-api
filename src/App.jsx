@@ -54,7 +54,7 @@ function App() {
       <main className="container">
         <section>
           <div className="text-center mb-2">
-            <h1>Actors</h1>
+            <h1>Cast</h1>
             <span>List of actors fetched from an API</span>
           </div>
           <CardList

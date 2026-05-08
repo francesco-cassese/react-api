@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import CardList from "./components/CardList";
 import Header from "./components/Header";
 
-const urlAttrici = 'https://lanciweb.github.io/demo/api/actresses/';
-const urlAttori = ' https://lanciweb.github.io/demo/api/actors/';
+const urlActresses = 'https://lanciweb.github.io/demo/api/actresses/';
+const urlActor = ' https://lanciweb.github.io/demo/api/actors/';
 
 function App() {
 
@@ -41,8 +41,8 @@ function App() {
 
   useEffect(() => {
     console.log('Eseguito');
-    chiamataApi(urlAttrici, setActresses, "Female");
-    chiamataApi(urlAttori, setActors, "Male");
+    chiamataApi(urlActresses, setActresses, "Female");
+    chiamataApi(urlActor, setActors, "Male");
   }, []);
 
   return (

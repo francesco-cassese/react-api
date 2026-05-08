@@ -3,14 +3,13 @@ import CardList from "./components/CardList";
 import Header from "./components/Header";
 
 const urlActresses = 'https://lanciweb.github.io/demo/api/actresses/';
-const urlActor = ' https://lanciweb.github.io/demo/api/actors/';
+const urlActors = ' https://lanciweb.github.io/demo/api/actors/';
 
 function App() {
 
-  const [actresses, setActresses] = useState([]);
-  const [actors, setActors] = useState([]);
+  const [cast, setCast] = useState([]);
 
-  const chiamataApi = (url, setData, prefisso) => {
+  const chiamataApi = (url, prefisso) => {
     return (
       fetch(url)
         .then(response => {
@@ -18,7 +17,7 @@ function App() {
         })
         .then(json => {
           console.log(json);
-          const datiEstrapolati = json.map(({ id, name, birth_year, nationality, biography, image, awards, known_for }) => {
+          return json.map(({ id, name, birth_year, nationality, biography, image, awards, known_for }) => {
             return {
               id: `${prefisso} ${id}`,
               name,
@@ -30,19 +29,23 @@ function App() {
               knownFor: known_for
             }
           });
-          setData(datiEstrapolati);
-        })
-        .catch(error => {
-          console.error(error);
-
         })
     )
   };
 
   useEffect(() => {
     console.log('Eseguito');
-    chiamataApi(urlActresses, setActresses, "Female");
-    chiamataApi(urlActor, setActors, "Male");
+
+    Promise.all([
+      chiamataApi(urlActors, "Male"),
+      chiamataApi(urlActresses, "Female")
+    ])
+      .then(([actors, actresses]) => {
+        setCast([...actors, ...actresses]);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }, []);
 
   return (
@@ -55,7 +58,7 @@ function App() {
             <span>List of actors fetched from an API</span>
           </div>
           <CardList
-            data={[...actors, ...actresses]}
+            data={cast}
           />
         </section>
       </main>

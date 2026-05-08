@@ -10,7 +10,7 @@ function App() {
   const [actresses, setActresses] = useState([]);
   const [actors, setActors] = useState([]);
 
-  const chiamataApi = (url, setData) => {
+  const chiamataApi = (url, setData, prefisso) => {
     return (
       fetch(url)
         .then(response => {
@@ -20,7 +20,7 @@ function App() {
           console.log(json);
           const datiEstrapolati = json.map(({ id, name, birth_year, nationality, biography, image, awards, known_for }) => {
             return {
-              id,
+              id: `${prefisso} ${id}`,
               name,
               birthYear: birth_year,
               nationality,
@@ -32,7 +32,7 @@ function App() {
           });
           setData(datiEstrapolati);
         })
-        .catch(erro => {
+        .catch(error => {
           console.error(error);
 
         })
@@ -41,8 +41,8 @@ function App() {
 
   useEffect(() => {
     console.log('Eseguito');
-    chiamataApi(urlAttrici, setActresses);
-    chiamataApi(urlAttori, setActors);
+    chiamataApi(urlAttrici, setActresses, "Female");
+    chiamataApi(urlAttori, setActors, "Male");
   }, []);
 
   return (
